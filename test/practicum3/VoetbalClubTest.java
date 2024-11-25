@@ -32,6 +32,7 @@ public class VoetbalClubTest {
     @Test
     public void foutInvoerGespeeldeWedstrijd_BeinvloedResultatenNiet(){
         vbc.verwerkResultaat('w');
+        vbc.verwerkResultaat('g');
         vbc.verwerkResultaat('1');
         System.out.println(vbc);
     }

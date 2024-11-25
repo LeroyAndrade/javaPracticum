@@ -1,10 +1,18 @@
 package practicum2.practicumB;
 
 public class Voetbalclub {
-    private String voetbalclubNaam;
+    public String voetbalclubNaam;
     private int aantalGewonnen = 0;
     private int aantalGelijk = 0;
     private int aantalVerloren = 0;
+
+    public String getVoetbalclubNaam() {
+        return voetbalclubNaam;
+    }
+
+    public void setVoetbalclubNaam(String voetbalclubNaam) {
+        this.voetbalclubNaam = voetbalclubNaam;
+    }
 
     public Voetbalclub(String voetbalclubNaam) {
         this.voetbalclubNaam = voetbalclubNaam;

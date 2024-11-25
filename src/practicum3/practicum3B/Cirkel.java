@@ -10,6 +10,11 @@ public class Cirkel {
         this.xPositie = xPositie;
         this.yPositie = yPositie;
 
+        if (this.radius <= 0){
+            throw new IllegalArgumentException("Radius must be greater than 0C");
+        } else{
+            System.out.println("OK");
+        }
     }
 
     public int getRadius() {

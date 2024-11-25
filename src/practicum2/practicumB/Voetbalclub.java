@@ -18,9 +18,6 @@ public class Voetbalclub {
         this.voetbalclubNaam = voetbalclubNaam;
     }
 
-    public int getAantalGewonnen() {
-        return aantalGewonnen;
-    }
 
     public void setAantalGewonnen(int aantalGewonnen) {
         this.aantalGewonnen = aantalGewonnen;
@@ -48,12 +45,22 @@ public class Voetbalclub {
 
 
     public void verwerkResultaat(char ch) {
-        if (ch == 'w')
-            this.aantalGewonnen = aantalGewonnen + 1;
-        if (ch == 'g')
-            this.aantalGelijk = aantalGelijk + 1;
-        if (ch == 'v')
-            this.aantalVerloren = aantalVerloren + 1;
+        try
+        {
+            if (!Character.isLetter(ch)) {
+                System.out.println("Invalide input");
+            } else {
+                    if (ch == 'w') { this.aantalGewonnen = aantalGewonnen + 1; }
+                    else if (ch == 'g') { this.aantalGelijk = aantalGelijk + 1; }
+                    else if (ch == 'v') { this.aantalVerloren = aantalVerloren + 0; }
+                    else{ System.out.println("Invalide input"); }
+                   }
+        }
+
+        catch (ClassCastException e){
+            System.out.printf("Invalide input");
+        }
+
     }
 
     public int aantalGespeeld(){
@@ -63,11 +70,9 @@ public class Voetbalclub {
     @Override
     public String toString() {
         return  voetbalclubNaam
-                + " " +this.getAantalVerloren()
-                + " " +this.getAantalGelijk()
-                + " " +this.getAantalGewonnen()
-                + " ?" //absoluut geen idee wat hier moet komen te staan met de waarde 0 zoals in het voorbeeld
-                + " " + this.aantalPunten();
+                + " " +this.aantalGewonnen *3
+                + " " +this.aantalGelijk
+                + " " +this.aantalVerloren;
     }
 
 //    overide
@@ -89,9 +94,9 @@ public class Voetbalclub {
             System.out.println("Feijenoord punten: " + feij.aantalPunten());
             System.out.println("Ajax gespeeld: " + ajx.aantalGespeeld());
             System.out.println();
-
-            System.out.println(ajx);
-            System.out.println(feij);
+//
+//            System.out.println(ajx);
+//            System.out.println(feij);
         }
     }
 

@@ -11,16 +11,14 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class VoetbalClubTest {
 
-    private Voetbalclub club;
+    private Voetbalclub vbc;
     @BeforeEach
     public void init(){
         System.out.println("init");
-        club = new Voetbalclub("Fejj");
         //    init is een methode die altijd wordt gerunt voordat de rest wordt gerunt
         // zo doe je dus Dont repeat yourself
-        Rekening r = new Rekening(13245698);
+        vbc = new Voetbalclub("");
     }
-
 
     @Test
     public void clubNaam_null_or_empty_ThenSetClubName_FC() {
@@ -28,10 +26,12 @@ public class VoetbalClubTest {
 //        club.voetbalclubNaam = "FC ";
 //        club.voetbalclubNaam = "";
 //        club.voetbalclubNaam = null;
-        if (club.voetbalclubNaam.isEmpty() || this.club.voetbalclubNaam == null) {
-            club.voetbalclubNaam = "FC";
+
+        if (vbc.getVoetbalclubNaam().isEmpty() || vbc.getVoetbalclubNaam() == null) {
+            vbc.setVoetbalclubNaam("FC");
+            System.out.printf("De naam van de club is nu toegevoegd omdat het leeg was en is: " + vbc.getVoetbalclubNaam());
         }
-        assertEquals("FC", club.voetbalclubNaam, "Club name should default to 'FC' if null or empty.");
+        assertEquals("FC", vbc.getVoetbalclubNaam(), "Club name should default to 'FC' if null or empty.");
     }
 
     @Test

@@ -5,65 +5,35 @@ public class Cirkel {
     private int xPositie;
     private int yPositie;
 
-    public Cirkel(int radius, int xPositie, int yPositie) {
+    public Cirkel(int radius, int xPositie, int yPositie) throws LeroyException{
         this.radius = radius;
         this.xPositie = xPositie;
         this.yPositie = yPositie;
 
-        if (this.radius <= 0){
-            throw new IllegalArgumentException("Radius must be greater than 0C");
-        } else{
-            System.out.println("OK");
-        }
+            if (radius <=0) {
+                throw new IllegalArgumentException ("Radius moet groter dan 0 zijn!");
+            }
     }
 
-    public int getRadius() {
-        return radius;
-    }
 
     public void setRadius(int radius) {
         this.radius = radius;
     }
 
-    public int getxPositie() {
-        return xPositie;
-    }
-
-    public void setxPositie(int xPositie) {
-        this.xPositie = xPositie;
-    }
-
-    public int getyPositie() {
-        return yPositie;
-    }
-
-    public void setyPositie(int yPositie) {
-        this.yPositie = yPositie;
-    }
-
-
     @Override
     public String toString() {
-        return "Cirkel{" +
-                "radius=" + radius +
-                ", xPositie=" + xPositie +
-                ", yPositie=" + yPositie +
-                '}';
+        return "Cirkel (" + xPositie + ", " + yPositie + ") "
+                +"met radius: " + radius;
     }
 
     public static void main(String[] args) {
         Cirkel c1 = null, c2 = null;
 
         try {
-            c1 = new Cirkel(3, 0, 0);
-        } catch (IllegalArgumentException iae) {
-            System.out.println( iae.getMessage() );
-        }
-
-        try {
-            c2 = new Cirkel(0, 0, 0);
-        } catch (IllegalArgumentException iae) {
-            System.out.println( iae.getMessage() );
+            c1 = new Cirkel(10, 0, 0);
+            c2 = new Cirkel(0, 10, 10);
+        } catch (IllegalArgumentException | LeroyException e) {
+            System.out.println(e.getMessage());
         }
 
         System.out.println(c1);

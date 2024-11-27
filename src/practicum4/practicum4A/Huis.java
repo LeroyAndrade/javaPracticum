@@ -1,4 +1,4 @@
-package practicum4.practicum4B;
+package practicum4.practicum4A;
 
 public class Huis {
     private String adres;

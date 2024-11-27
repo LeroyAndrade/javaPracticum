@@ -5,13 +5,14 @@ public class Cirkel {
     private int xPositie;
     private int yPositie;
 
-    public Cirkel(int radius, int xPositie, int yPositie) throws LeroyException{
+    public Cirkel(int radius, int xPositie, int yPositie) throws LeroyException {
         this.radius = radius;
         this.xPositie = xPositie;
         this.yPositie = yPositie;
 
             if (radius <=0) {
                 throw new IllegalArgumentException ("Radius moet groter dan 0 zijn!");
+
             }
     }
 

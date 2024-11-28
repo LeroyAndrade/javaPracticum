@@ -4,28 +4,12 @@ import java.io.IOException;
 
 public class LeroyException extends Exception {
 
-//    Ik kom hier niet uit. :*(
-    // het lukt niet om te zeggen: number <=0 ? catch{}
-    // uw gedeelde MartijnException voorbeeld is helaas incompleet en via tutorials lukt het mij helaas niet
-    //een eigen exception te maken
-    public LeroyException(String arg) throws IllegalArgumentException {
+    public LeroyException(String arg) {
 
         super(arg);
-
-
-
-        try {
-            double number = Double.parseDouble(arg);
-
-            if (number <= 0) {
-
-            }
-
-        } catch (IllegalArgumentException e) {
-            throw new IllegalArgumentException("Radius moet groter dan 0 zijn: " + arg);
-        }
     }
 }
+
 
 //        // NullPointerException
 //        if (arg == null) {

@@ -13,9 +13,22 @@ public class AutoHuur {
         return aantalDagen;
     }
 
-    public Klant getHuurder() {
-        return huurder;
+    public String getHuurder() {
+        if (huurder == null) {
+            return "er is geen huurder";
+        }
+        return huurder.toString();
     }
+
+
+//    ? Voor in de les, wat is het verschil?
+//    public Klant getHuurder() {
+//        if (huurder == null) {
+//            return "er is geen huurder";
+//        }
+//        return huurder.toString();
+//    }
+
 
     public Auto getGehuurdeAuto() {
         return gehuurdeAuto;
@@ -89,7 +102,7 @@ public class AutoHuur {
             System.out.println("Eerste autohuur:\n" + ah1 + "\n");
 
             Klant k = new Klant("Mijnheer Andrade");
-            k.setKortingsPercentage(10.0);
+            k.setKortingsPercentage(0.0);
             ah1.setHuurder(k);
             System.out.println("Eerste autohuur:\n" + ah1 + "\n");
 

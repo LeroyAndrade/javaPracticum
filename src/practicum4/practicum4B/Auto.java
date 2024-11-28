@@ -2,7 +2,7 @@ package practicum4.practicum4B;
 
 public class Auto {
     private String type;
-    private double prijsPerDag;
+    public double prijsPerDag;
 
     public Auto(String tp, double prPd) {
         this.type = tp;
@@ -19,9 +19,8 @@ public class Auto {
 
     @Override
     public String toString() {
-        return "Auto{" +
-                "type='" + type + '\'' +
-                ", prijsPerDag=" + prijsPerDag +
-                '}';
+        return "autotype: "
+                +type + " "
+                +"met prijs per dag: " + prijsPerDag;
     }
 }

@@ -34,10 +34,18 @@ public class AutoHuur {
     }
 
     public double totaalPrijs() {
-        if (gehuurdeAuto == null) {
-            return 0;
+        if (gehuurdeAuto == null || aantalDagen == 0) {
+            return 0.0;
         }
-        return aantalDagen * gehuurdeAuto.getPrijsPerDag();
+
+        double tijdelijkOpslagPrijs = aantalDagen * gehuurdeAuto.getPrijsPerDag();
+        double korting = 0.0;
+
+        if (huurder != null) {
+            korting = tijdelijkOpslagPrijs * (huurder.getKortingsPercentage() / 100);
+        }
+
+        return tijdelijkOpslagPrijs - korting;
     }
 
     @Override
@@ -68,10 +76,10 @@ public class AutoHuur {
             overrideAantalDagen = String.valueOf(aantalDagen);
         }
 
-//        String autoStr = (gehuurdeAuto == null) ? "geen auto" : gehuurdeAuto.toString();
+//  Override
         return  overrideGehuurdeAuto + "\n"
                 + overrideHuurder + "\n"
-                + overrideAantalDagen + "en dat kost: " + totaalPrijs() + "\n";
+                + "aantal dagen " + overrideAantalDagen + " en dat kost: " + totaalPrijs() + "\n";
     }
 
 
@@ -80,18 +88,18 @@ public class AutoHuur {
 
             System.out.println("Eerste autohuur:\n" + ah1 + "\n");
 
-            Klant k = new Klant("Mijnheer de Vries");
+            Klant k = new Klant("Mijnheer Andrade");
             k.setKortingsPercentage(10.0);
             ah1.setHuurder(k);
             System.out.println("Eerste autohuur:\n" + ah1 + "\n");
 
-            Auto a1 = new Auto("Peugeot 207", 50);
+            Auto a1 = new Auto("Mercedes AMG One", 50);
             ah1.setGehuurdeAuto(a1);
             ah1.setAantalDagen(4);
             System.out.println("Eerste autohuur:\n" + ah1 + "\n");
 
             AutoHuur ah2 = new AutoHuur();
-            Auto a2 = new Auto("Ferrari", 3500);
+            Auto a2 = new Auto("Ferrari 488 Spider", 3500);
             ah2.setGehuurdeAuto(a2);
             ah2.setHuurder(k);
             ah2.setAantalDagen(1);

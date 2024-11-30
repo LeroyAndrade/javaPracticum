@@ -18,7 +18,7 @@ public class Voetbalclub {
 
         if (voetbalclubNaam.isEmpty()) {
             this.setVoetbalclubNaam("FC");
-            Systems.out.println("De naam van de club is nu toegevoegd omdat het leeg was en is omgezet naar: " + this.getVoetbalclubNaam());
+            System.out.println("De naam van de club is nu toegevoegd omdat het leeg was en is omgezet naar: " + this.getVoetbalclubNaam());
         }
 
 

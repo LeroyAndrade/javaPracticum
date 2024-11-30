@@ -10,10 +10,10 @@ public class Klant {
 
     public double getKortingsPercentage() {
         if (kortingsPercentage == 0.0){
-            return 0;
-        } else{
-        return kortingsPercentage;
-    }
+            return 0.0;
+        } else {
+            return kortingsPercentage;
+        }
     }
 
     public void setKortingsPercentage(double kortingsPercentage) {
@@ -23,7 +23,6 @@ public class Klant {
     @Override
     public String toString() {
         return "Op naam van: "
-                +naam + '\''
-                +"(korting: " + kortingsPercentage + "%)";
+                +naam + " (korting: " + kortingsPercentage + "%)";
     }
 }

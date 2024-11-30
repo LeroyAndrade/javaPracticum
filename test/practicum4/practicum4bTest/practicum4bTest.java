@@ -28,25 +28,23 @@ public class practicum4bTest {
 
     @Test
     void geenHuurderWelAuto() {
-
         ah1.setGehuurdeAuto(auto);
         assertNull(ah1.getHuurder(), "Geen huurder");
-        assertEquals(auto, ah1.getGehuurdeAuto(), "Geen huurder");
+        assertEquals(auto, ah1.getGehuurdeAuto(), "Mercedes AMG One met prijs per dag: 10.0");
     }
 
     @Test
     void welHuurderGeenAuto() {
         ah1.setHuurder(klant);
-        assertEquals(klant, ah1.getHuurder(), "Expected renter to be set correctly");
-        assertNull(ah1.getGehuurdeAuto(), "wel huurder geen Auto");
+        assertEquals(klant, ah1.getHuurder(), "wel huurder");
+        assertNull(ah1.getGehuurdeAuto(), "geen autohuur");
     }
 
     @Test
     void welHuurderGeenKorting(){
         ah1.setHuurder(klant);
         klant.setKortingsPercentage(0.0);
-        assertEquals("Op naam van: Mijnheer Andrade'(korting: 0.0%)", ah1.getHuurder(),
-                "Wel huurder geen korting");
+        assertEquals("Op naam van: Mijnheer Andrade (korting: 0.0%)", ah1.getHuurder().toString(),"Wel huurder geen korting");
     }
 
 

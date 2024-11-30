@@ -13,11 +13,11 @@ public class AutoHuur {
         return aantalDagen;
     }
 
-    public String getHuurder() {
+    public Klant getHuurder() {
         if (huurder == null) {
-            return "er is geen huurder";
-        }
-        return huurder.toString();
+            return null;
+        }   return this.huurder;
+
     }
 
 

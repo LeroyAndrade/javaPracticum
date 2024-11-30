@@ -1,6 +1,6 @@
 package practicum3;
 
-import practicum2.practicumB.Voetbalclub;
+import practicum3.practicum3A.Voetbalclub;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -22,10 +22,6 @@ public class VoetbalClubTest {
     @Test
     public void clubNaam_null_or_empty_ThenSetClubName_FC() {
 
-        if (vbc.getVoetbalclubNaam().isEmpty() || vbc.getVoetbalclubNaam() == null) {
-            vbc.setVoetbalclubNaam("FC");
-            System.out.println("De naam van de club is nu toegevoegd omdat het leeg was en is omgezet naar: " + vbc.getVoetbalclubNaam());
-        }
         assertEquals("FC", vbc.getVoetbalclubNaam(), "Check of clubnaam FC is.");
     }
 
@@ -36,21 +32,5 @@ public class VoetbalClubTest {
         vbc.verwerkResultaat('1');
         System.out.println(vbc);
     }
-
-//    @Test
-//    void stortenPositiefBedragWijzigtSaldo() {
-//        Rekening r = new Rekening(12345678);
-//
-//        r.stort(100);
-//
-//        assertEquals(100, r.getSaldo());
-////        assertEquals(100.000000000000007, r.getSaldo()); //slaagt ook in de test
-//
-//    }
-
-
-
-//    @Test
-//    void tes_leeftijdGroterDan76EnInBezitMuseumpas_Kortingtoekennen(){}
 }
 

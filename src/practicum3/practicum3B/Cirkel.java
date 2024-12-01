@@ -13,7 +13,6 @@ public class Cirkel {
             if (radius <=0) {
                 throw new IllegalArgumentException  ("Radius moet groter dan 0 zijn!");
             }
-
     }
 
     public void setRadius(int radius) {

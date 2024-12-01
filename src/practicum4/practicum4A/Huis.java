@@ -11,19 +11,19 @@ public class Huis {
         this.bouwjaar = bwj;
     }
 
-    public Persoon getHuisbaas() {
-        return huisbaas;
+    public void setHuisbaas(Persoon hb) {
+        this.huisbaas = hb;
     }
 
-    public void setHuisbaas(Persoon huisbaas) {
-        this.huisbaas = huisbaas;
+    public Persoon getHuisbaas() {
+        return huisbaas;
     }
 
     @Override
     public String toString() {
         return "Huis " + adres
                 +" is gebouwd in " + bouwjaar
-                +"\nen heeft " + this.getHuisbaas();
+                +"\nen heeft" + this.getHuisbaas();
     }
 
         public static void main(String[] args) {
@@ -38,7 +38,8 @@ public class Huis {
             h2.setHuisbaas(p2);
             System.out.println(h2);
             System.out.println();
-            System.out.println("Huisbaas 1: " + h1.getHuisbaas());
-            System.out.println("Huisbaas 2: " + h2.getHuisbaas());
+            System.out.println("Huisbaas 1:" + h1.getHuisbaas());
+            System.out.println("Huisbaas 2:" + h2.getHuisbaas());
         }
    }
+

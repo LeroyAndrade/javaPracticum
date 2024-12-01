@@ -14,7 +14,7 @@ public class practicum4bTest {
     public void init() {
         ah1 = new AutoHuur();
         klant = new Klant("Mijnheer Andrade");
-        klant.setKortingsPercentage(10.0);
+        klant.setKorting(10.0);
         auto = new Auto("Mercedes AMG One", 10.0);
 
         AutoHuur ah1 = new AutoHuur();
@@ -43,7 +43,7 @@ public class practicum4bTest {
     @Test
     void welHuurderGeenKorting(){
         ah1.setHuurder(klant);
-        klant.setKortingsPercentage(0.0);
+        klant.setKorting(0.0);
         assertEquals("Op naam van: Mijnheer Andrade (korting: 0.0%)", ah1.getHuurder().toString(),"Wel huurder geen korting");
     }
 

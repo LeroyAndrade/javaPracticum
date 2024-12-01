@@ -8,42 +8,30 @@ public class AutoHuur {
     public AutoHuur() {
 
     }
+    public void setAantalDagen(int aD) {
+        this.aantalDagen = aD;
+    }
 
     public int getAantalDagen() {
         return aantalDagen;
+    }
+
+    public void setGehuurdeAuto(Auto gA) {
+        this.gehuurdeAuto = gA;
+    }
+
+    public Auto getGehuurdeAuto() {
+        return gehuurdeAuto;
+    }
+
+    public void setHuurder(Klant k) {
+        this.huurder = k;
     }
 
     public Klant getHuurder() {
         if (huurder == null) {
             return null;
         }   return this.huurder;
-
-    }
-
-
-//    ? Voor in de les, wat is het verschil?
-//    public Klant getHuurder() {
-//        if (huurder == null) {
-//            return "er is geen huurder";
-//        }
-//        return huurder.toString();
-//    }
-
-
-    public Auto getGehuurdeAuto() {
-        return gehuurdeAuto;
-    }
-
-    public void setAantalDagen(int aantalDagen) {
-        this.aantalDagen = aantalDagen;
-    }
-
-    public void setHuurder(Klant huurder) {
-        this.huurder = huurder;
-    }
-
-    public void setGehuurdeAuto(Auto gehuurdeAuto) {
-        this.gehuurdeAuto = gehuurdeAuto;
     }
 
     public double totaalPrijs() {
@@ -55,7 +43,7 @@ public class AutoHuur {
         double korting = 0.0;
 
         if (huurder != null) {
-            korting = tijdelijkOpslagPrijs * (huurder.getKortingsPercentage() / 100);
+            korting = tijdelijkOpslagPrijs * (huurder.getKorting() / 100);
         }
 
         return tijdelijkOpslagPrijs - korting;
@@ -65,34 +53,34 @@ public class AutoHuur {
     public String toString() {
           String overrideHuurder;
           if (huurder == null){
-              overrideHuurder = "Er is geen huurder bekend";
+              overrideHuurder = "  Er is geen huurder bekend";
           } else { overrideHuurder = huurder.toString();}
 
         String overrideGehuurdeAuto;
         if (gehuurdeAuto == null) {
-            overrideGehuurdeAuto = "Er is geen auto bekend";
+            overrideGehuurdeAuto = "  Er is geen auto bekend";
         } else {
             overrideGehuurdeAuto = gehuurdeAuto.toString();
         }
 
         String overrideAantalDagen;
         if (aantalDagen == 0) {
-            overrideAantalDagen = "Aantal dagen: 0";
+            overrideAantalDagen = "  Aantal dagen: 0";
         } else {
-            overrideAantalDagen = gehuurdeAuto.toString();
+            overrideAantalDagen = Integer.toString(aantalDagen);
         }
 
         String overrideTotaalPrijs;
         if (aantalDagen == 0) {
-            overrideAantalDagen = "Aantal dagen: 0";
+            overrideAantalDagen = "  Aantal dagen: 0";
         } else {
-            overrideAantalDagen = String.valueOf(aantalDagen);
+            overrideAantalDagen = ""+aantalDagen;
         }
 
 //  Override
         return  overrideGehuurdeAuto + "\n"
                 + overrideHuurder + "\n"
-                + "aantal dagen " + overrideAantalDagen + " en dat kost: " + totaalPrijs() + "\n";
+                + "  aantal dagen: " + overrideAantalDagen + " en dat kost: " + totaalPrijs();
     }
 
 
@@ -102,7 +90,7 @@ public class AutoHuur {
             System.out.println("Eerste autohuur:\n" + ah1 + "\n");
 
             Klant k = new Klant("Mijnheer Andrade");
-            k.setKortingsPercentage(0.0);
+            k.setKorting(10.0);
             ah1.setHuurder(k);
             System.out.println("Eerste autohuur:\n" + ah1 + "\n");
 

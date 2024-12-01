@@ -8,21 +8,21 @@ public class Klant {
         this.naam = nm;
     }
 
-    public double getKortingsPercentage() {
+    public void setKorting(double kP) {
+        this.kortingsPercentage = kP;
+    }
+
+    public double getKorting() {
         if (kortingsPercentage == 0.0){
             return 0.0;
         } else {
-            return kortingsPercentage;
+            return this.kortingsPercentage;
         }
-    }
-
-    public void setKortingsPercentage(double kortingsPercentage) {
-        this.kortingsPercentage = kortingsPercentage;
     }
 
     @Override
     public String toString() {
-        return "Op naam van: "
-                +naam + " (korting: " + kortingsPercentage + "%)";
+        return "  Op naam van: "
+                +naam + " (korting: " + getKorting() + "%)";
     }
 }

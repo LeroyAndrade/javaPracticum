@@ -9,18 +9,21 @@ public class Auto {
         this.prijsPerDag = prPd;
     }
 
+    public void setPrijsPerDag(double prPd) {
+        this.prijsPerDag = prPd;
+    }
+
     public double getPrijsPerDag() {
         return prijsPerDag;
     }
 
-    public void setPrijsPerDag(double prijsPerDag) {
-        this.prijsPerDag = prijsPerDag;
-    }
-
     @Override
     public String toString() {
-        return "autotype: "
+        return "  autotype: "
                 +type + " "
                 +"met prijs per dag: " + prijsPerDag;
     }
 }
+//uml
+//toString van AutoHuu
+//Naamgevingen van methoden tussen UML en code komen ook niet overeen.

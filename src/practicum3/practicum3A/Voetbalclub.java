@@ -16,7 +16,7 @@ public class Voetbalclub {
 
     public Voetbalclub(String voetbalclubNaam) {
 
-        if (voetbalclubNaam.isEmpty()) {
+        if (voetbalclubNaam.isEmpty() || voetbalclubNaam == " " || voetbalclubNaam == null) {
             this.setVoetbalclubNaam("FC");
             System.out.println("De naam van de club is nu toegevoegd omdat het leeg was en is omgezet naar: " + this.getVoetbalclubNaam());
         }

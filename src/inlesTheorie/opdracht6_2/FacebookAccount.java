@@ -9,4 +9,8 @@ public class FacebookAccount {
     public FacebookAccount(String naam) {
         this.naam = naam;
     }
+
+    public static void main(String[] args) {
+        System.out.println(1);
+    }
 }

@@ -13,11 +13,10 @@ public class VoetbalClubTest {
     private Voetbalclub vbc;
     @BeforeEach
     public void init(){
-        System.out.println("init");
-        //    init is een methode die altijd wordt gerunt voordat de rest wordt gerunt
-        // zo doe je dus Dont repeat yourself
-        vbc = new Voetbalclub("");
+
     }
+
+//Uit die logische testgevallen komen fysieke testgevallen. Maak die ook in hetzelfde document.
 
 /*
 Logische testgevallen
@@ -31,38 +30,53 @@ Fysieke testgeval: voor ieder testgeval 1 fysieke maken
                 ""                          en geen " "
 
 2           heeft naam   clubnaam krijgt die willekeurige
-
-
-
-
-
 */
 
     @Test
-    public void clubNaam_null_or_empty_ThenSetClubName_FC() {
-        assertEquals("FC", vbc.getVoetbalclubNaam(), "Check of clubnaam FC is.");
-        assertTrue(vbc.getVoetbalclubNaam().startsWith("FC"));
+    public void clubNaam_bevatNull_ThenSetClubName_FC() {
+        vbc = new Voetbalclub(null);
+        assertNull(vbc.getVoetbalclubNaam(), "Check of clubnaam NULL bevat en plaats dan \"FC\" ");
+//        assertTrue(vbc.getVoetbalclubNaam().startsWith(null));
     }
 
     @Test
-    public void clubNaam_null_or_empty_ThenSetClubName_FwC() {
-        assertEquals("FC", vbc.getVoetbalclubNaam(), "Check of clubnaam FC is.");
-        String abc = new Voetbalclub(null).toString();
+    public void clubNaam_bevatSpatie_ThenSetClubName_FC() {
+        vbc = new Voetbalclub(" ");
+        assertNotNull(vbc.getVoetbalclubNaam(), "Check of clubnaam een SPATIE bevat en plaats dan \"FC\" ");
     }
 
     @Test
-    public void clubNaam_bevatSpatie_ThenSetClubName_FwC() {
-        String abc = new Voetbalclub(" ").toString();
+    public void clubNaam_bevatLeegString_ThenSetsClubName() {
+        vbc = new Voetbalclub("");
+        assertNotEquals("", vbc.getVoetbalclubNaam(), "Check of clubnaam een leeg String bevat en plaats dan \"FC\" ");
+    }
+
+
+    @Test
+    public void invoerResultaten_drie_één_en_Nul_punten(){
+        vbc = new Voetbalclub("FC Hu");
+        vbc.verwerkResultaat("w");
+        vbc.verwerkResultaat("g");
+        assertEquals("FC 3 1 0", vbc.toString());
     }
 
     @Test
-    public void foutInvoerGespeeldeWedstrijd_BeinvloedResultatenNiet(){
-        vbc.verwerkResultaat('w');
-        vbc.verwerkResultaat('g');
-        vbc.verwerkResultaat('1');
-        System.out.println(vbc);
+    public void foutInvoerGespeeldeWedstrijdInputINT_BeinvloedResultatenNiet(){
+        vbc = new Voetbalclub("FC");
+        vbc.verwerkResultaat("w"); //+3punten
+        vbc.verwerkResultaat("11"); // excpetion catched
+        assertEquals("FC 3 0 0", vbc.toString());
     }
+
+
+
+
+
+
+
+
+
+
+
+
 }
-
-// logisch >=19
-// fysiek:     18>

@@ -16,9 +16,9 @@ public class Voetbalclub {
 
     public Voetbalclub(String voetbalclubNaam) {
 
-        if (voetbalclubNaam.isEmpty() || voetbalclubNaam == " " || voetbalclubNaam == null) {
+        if (this.voetbalclubNaam == null || this.voetbalclubNaam.isEmpty()) {
             this.setVoetbalclubNaam("FC");
-            System.out.println("De naam van de club is nu toegevoegd omdat het leeg was en is omgezet naar: " + this.getVoetbalclubNaam());
+            System.out.println("De naam van de club is nu toegevoegd en is omgezet naar: " + this.getVoetbalclubNaam());
         }
     }
 
@@ -42,28 +42,28 @@ public class Voetbalclub {
         this.aantalVerloren = aantalVerloren;
     }
 
-    public int aantalPunten(){
-        return this.aantalVerloren + this.aantalGelijk + this.aantalGewonnen *3;
+    public int aantalPunten() {
+        return this.aantalVerloren + this.aantalGelijk + this.aantalGewonnen * 3;
     }
 
 
-    public void verwerkResultaat(char ch) {
-        try
-        {
-            if (!Character.isLetter(ch)) {
-                System.out.println("Invalide input");
+    public void verwerkResultaat(String ch) {
+        try {
+             if (ch == "w") {
+                this.aantalGewonnen = aantalGewonnen + 1;
+            } else if (ch == "g") {
+                this.aantalGelijk = aantalGelijk + 1;
+            } else if (ch == "v") {
+                this.aantalVerloren = aantalVerloren + 0;
+            } else if (ch == " ") {
+                this.aantalVerloren = aantalVerloren + 0;
+                System.out.printf("Invalide input: spatie gedetecteerd");
             } else {
-                    if (ch == 'w') { this.aantalGewonnen = aantalGewonnen + 1; }
-                    else if (ch == 'g') { this.aantalGelijk = aantalGelijk + 1; }
-                    else if (ch == 'v') { this.aantalVerloren = aantalVerloren + 0; }
-                    else{ System.out.println("Invalide input"); }
-                   }
-        }
-
-        catch (ClassCastException e){
+                System.out.println("Invalide input");
+            }
+        } catch (ClassCastException e){
             System.out.printf("Invalide input");
         }
-
     }
 
     public int aantalGespeeld(){
@@ -81,18 +81,18 @@ public class Voetbalclub {
 //    overide
 
         public static void main(String[] args) {
-            Voetbalclub ajx = new Voetbalclub("Ajax      ");
+            Voetbalclub ajx = new Voetbalclub("Aja`x      ");
             Voetbalclub feij = new Voetbalclub("Feijenoord");
 
-            feij.verwerkResultaat('w');
-            feij.verwerkResultaat('w');
-            feij.verwerkResultaat('g');
-            feij.verwerkResultaat('v');
+            feij.verwerkResultaat("w");
+            feij.verwerkResultaat("w");
+            feij.verwerkResultaat("g");
+            feij.verwerkResultaat("v");
 
-            ajx.verwerkResultaat('v');
-            ajx.verwerkResultaat('v');
-            ajx.verwerkResultaat('v');
-            ajx.verwerkResultaat('v');
+            ajx.verwerkResultaat("v");
+            ajx.verwerkResultaat("v");
+            ajx.verwerkResultaat("v");
+            ajx.verwerkResultaat("v");
 
             System.out.println("Feijenoord punten: " + feij.aantalPunten());
             System.out.println("Ajax gespeeld: " + ajx.aantalGespeeld());

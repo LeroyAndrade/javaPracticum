@@ -18,7 +18,7 @@ public class Voetbalclub {
 
         if (this.voetbalclubNaam == null || this.voetbalclubNaam.isEmpty()) {
             this.setVoetbalclubNaam("FC");
-            System.out.println("De naam van de club is nu toegevoegd en is omgezet naar: " + this.getVoetbalclubNaam());
+//            System.out.println("De naam van de club is nu toegevoegd en is omgezet naar: " + this.getVoetbalclubNaam());
         }
     }
 
@@ -59,10 +59,11 @@ public class Voetbalclub {
                 this.aantalVerloren = aantalVerloren + 0;
                 System.out.printf("Invalide input: spatie gedetecteerd");
             } else {
-                System.out.println("Invalide input");
+                 System.out.println("Fout invoer gedetecteerd");
+                 System.out.println();
             }
         } catch (ClassCastException e){
-            System.out.printf("Invalide input");
+            System.out.println();
         }
     }
 
@@ -81,7 +82,7 @@ public class Voetbalclub {
 //    overide
 
         public static void main(String[] args) {
-            Voetbalclub ajx = new Voetbalclub("Aja`x      ");
+            Voetbalclub ajx = new Voetbalclub("Ajax      ");
             Voetbalclub feij = new Voetbalclub("Feijenoord");
 
             feij.verwerkResultaat("w");

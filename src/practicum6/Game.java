@@ -1,4 +1,5 @@
 package practicum6;
+import java.time.LocalDate;
 
 public class Game{
 private String naam;
@@ -16,7 +17,10 @@ private double nieuwprijs;
     }
 
     public double huidigeWaarde(){
-        return 0.0;
+        int huidigeJaar = LocalDate.now().getYear();
+        int jaarWaarde = huidigeJaar - releaseJaar;
+
+        return nieuwprijs ;
     }
 
     public boolean equals(Object andereObject){
@@ -25,11 +29,12 @@ private double nieuwprijs;
 
     @Override
     public String toString() {
-        return "Game{" +
-                "naam='" + naam + '\'' +
-                ", releaseJaar=" + releaseJaar +
-                ", nieuwprijs=" + nieuwprijs +
-                '}';
+        return 0 + " " + naam + " " + releaseJaar + " " + nieuwprijs;
+//        return "GameGame{" +
+//                "naam='" + naam + '\'' +
+//                ", releaseJaar=" + releaseJaar +
+//                ", nieuwprijs=" + nieuwprijs +
+//                '}';
     }
 
     public static void main(String[] args) {

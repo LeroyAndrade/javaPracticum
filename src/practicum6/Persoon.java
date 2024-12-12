@@ -19,6 +19,11 @@ public class Persoon {
     }
 
     public boolean koop(Game g){
+        if (!mijnGame.contains(g) && budget >= g.huidigeWaarde()) {
+            mijnGame.add(g);
+            budget -= g.huidigeWaarde();
+            return true;
+        }
         return false;
     }
 
@@ -61,5 +66,7 @@ public class Persoon {
         System.out.println("p1 verkoopt g2 aan p2:"+(p1.verkoop(g2, p2) ? "" : " niet")+" gelukt");
         System.out.println("p1 verkoopt g1 aan p2:"+(p1.verkoop(g1, p2) ? "" : " niet")+" gelukt");
         System.out.println("\np1: " +p1+ "\n\np2: " +p2+ "\n");
+
+        System.out.println(g1);
     }
 }

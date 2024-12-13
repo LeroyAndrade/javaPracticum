@@ -40,6 +40,19 @@ public class Persoon {
      */
 
     @Override
+    public boolean equals(Object andereObject) {
+        boolean gelijkeObjecten = false;
+
+        if (andereObject instanceof Persoon) {
+            Persoon anderePersoon = (Persoon) andereObject;
+            if (this.naam.equals(anderePersoon.mijnGame)){
+                gelijkeObjecten = true;
+            }
+        }
+        return gelijkeObjecten;
+    }
+
+    @Override
     public String toString() {
         return  naam
                 +" heeft een budget van "

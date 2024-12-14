@@ -1,4 +1,4 @@
-package practicum6.practicum6a;
+package practicum6.practicum6A;
 import java.time.LocalDate;
 
 public class Game{

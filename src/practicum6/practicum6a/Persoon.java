@@ -1,4 +1,4 @@
-package practicum6;
+package practicum6.practicum6a;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -22,34 +22,19 @@ public class Persoon {
         if (!mijnGame.contains(g) && budget >= g.huidigeWaarde()) {
             mijnGame.add(g);
             budget -= g.huidigeWaarde();
+            System.out.println("game verkocht");
             return true;
         }
         return false;
     }
 
-    public boolean verkoop(Game g, Persoon koper){
-        return false;
-    }
-
-//    methode koop uitprogrammeren en 2 if statements
-    /*
-    equals van game overriden
-
-    equals
-    game doorgeven van je zelf aan de koper
-     */
-
-    @Override
-    public boolean equals(Object andereObject) {
-        boolean gelijkeObjecten = false;
-
-        if (andereObject instanceof Persoon) {
-            Persoon anderePersoon = (Persoon) andereObject;
-            if (this.naam.equals(anderePersoon.mijnGame)){
-                gelijkeObjecten = true;
-            }
+    public boolean verkoop(Game g, Persoon koper) {
+        if (mijnGame.contains(g) && koper.koop(g)) {
+            mijnGame.remove(g);
+            budget += g.huidigeWaarde();
+            return true;
         }
-        return gelijkeObjecten;
+        return false;
     }
 
     @Override
@@ -67,19 +52,16 @@ public class Persoon {
         Game g2 = new Game("Need for Speed: Rivals", releaseJaar1, 45.99);
         Game g3 = new Game("Need for Speed: Rivals", releaseJaar1, 45.99);
 
-        Persoon p1 = new Persoon("Eric", 200.00);
-        Persoon p2 = new Persoon("Hans", 55.00);
+        Persoon p1 = new Persoon("Eric", 200);
+        Persoon p2 = new Persoon("Hans", 55);
 
         System.out.println("p1 koopt g1:" + (p1.koop(g1) ? "" : " niet") + " gelukt");
         System.out.println("p1 koopt g2:" + (p1.koop(g2) ? "" : " niet") + " gelukt");
-        System.out.println("p1 koopt g3:" + (p2.koop(g3) ? "" : " niet") + " gelukt");
-
+        System.out.println("p1 koopt g3:" + (p1.koop(g3) ? "" : " niet") + " gelukt");
         System.out.println("\np1: " +p1+ "\n\np2: " +p2+ "\n");
 
         System.out.println("p1 verkoopt g2 aan p2:"+(p1.verkoop(g2, p2) ? "" : " niet")+" gelukt");
         System.out.println("p1 verkoopt g1 aan p2:"+(p1.verkoop(g1, p2) ? "" : " niet")+" gelukt");
         System.out.println("\np1: " +p1+ "\n\np2: " +p2+ "\n");
-
-        System.out.println(g1);
     }
 }

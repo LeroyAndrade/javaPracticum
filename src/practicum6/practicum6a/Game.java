@@ -45,6 +45,6 @@ private double nieuwprijs;
     @Override
     public String toString() {
         return naam + ", uitgegeven in " + releaseJaar + "; nieuwprijs: " + "\u20AC" + String.format("%.2f",nieuwprijs)
-                +" nu voor: " + "\u20AC" +  String.format("%.2f", huidigeWaarde()) + "\n";
+                +" nu voor: " + "\u20AC" +  String.format("%.2f", huidigeWaarde());
     }
 }

@@ -22,7 +22,6 @@ public class Persoon {
         if (!mijnGame.contains(g) && budget >= g.huidigeWaarde()) {
             mijnGame.add(g);
             budget -= g.huidigeWaarde();
-            System.out.println("game verkocht");
             return true;
         }
         return false;

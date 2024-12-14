@@ -22,6 +22,7 @@ public class Persoon {
         if (!mijnGame.contains(g) && budget >= g.huidigeWaarde()) {
             mijnGame.add(g);
             budget -= g.huidigeWaarde();
+            System.out.println("game verkocht");
             return true;
         }
         return false;
@@ -35,7 +36,21 @@ public class Persoon {
         }
         return false;
     }
+    @Override
+    public boolean equals(Object andereObject) {
+        boolean gelijkeObjecten = false;
 
+        // Check if the other object is an instance of Persoon
+        if (andereObject instanceof Persoon) {
+            Persoon anderePersoon = (Persoon) andereObject;
+
+            // Compare the name and the games collection
+            if (this.naam.equals(anderePersoon.naam) && this.mijnGame.equals(anderePersoon.mijnGame)) {
+                gelijkeObjecten = true;
+            }
+        }
+        return gelijkeObjecten;
+    }
     @Override
     public String toString() {
         return  naam

@@ -1,4 +1,4 @@
-package inlesTheorie;
+package inlesTheorie.rest;
 
 public class Rekening {
     private int nummer; // de 2 attributen

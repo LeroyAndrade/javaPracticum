@@ -1,6 +1,6 @@
 package theorie3.RekeningTest;
 
-import inlesTheorie.Rekening;
+import inlesTheorie.rest.Rekening;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;

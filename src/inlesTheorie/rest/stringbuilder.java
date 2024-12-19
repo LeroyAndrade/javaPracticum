@@ -1,4 +1,4 @@
-package inlesTheorie;
+package inlesTheorie.rest;
 
 public class stringbuilder {
     public static void main(String[] args) {

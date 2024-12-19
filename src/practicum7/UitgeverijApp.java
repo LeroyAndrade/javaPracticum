@@ -5,7 +5,7 @@ public class UitgeverijApp {
         StringProcessor processor = new StringProcessor();
 
         processor.voegProcesToe(new VervangProces("hij", "hij/zij"));
-        processor.voegProcesToe(new veranderVolgorde("student"));
+        processor.voegProcesToe(new veranderVolgorde("student loopt meestal"));
         processor.voegProcesToe(new HoofdletterProces());
 
         String inputString = "Een student loopt meestal in het derde jaar stage. Dan moet hij zelf een stageplek vinden.";

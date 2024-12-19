@@ -11,6 +11,8 @@ public class StringProcessor {
 
     public String verwerk(String input) {
         String resultaat = input;
+
+
         for (OpmaakProces proces : processen) {
             resultaat = proces.maakOp(resultaat);
         }

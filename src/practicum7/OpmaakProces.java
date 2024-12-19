@@ -1,5 +1,5 @@
 package practicum7;
 
 public interface OpmaakProces {
-    public String maakOp(String input);
+     String maakOp(String input);
     }

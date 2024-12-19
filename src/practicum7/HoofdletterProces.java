@@ -1,8 +1,8 @@
 package practicum7;
 
-public class HoofdletterProces {
+public class HoofdletterProces implements OpmaakProces{
     public HoofdletterProces() {}
-    public maakOp(String input){
-
+    public String maakOp(String input){
+        return input;
     }
 }

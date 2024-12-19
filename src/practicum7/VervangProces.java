@@ -1,6 +1,6 @@
 package practicum7;
 
-public class VervangProces {
+public class VervangProces implements OpmaakProces{
     private String oud;
     private String nieuw;
 
@@ -12,5 +12,4 @@ public class VervangProces {
     public String maakOp(String input){
         return input;
     }
-
 }

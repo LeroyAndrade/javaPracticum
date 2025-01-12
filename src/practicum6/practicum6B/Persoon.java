@@ -37,7 +37,7 @@ public class Persoon {
         return false;
     }
 
-//Opdracht 1:
+//Opdracht 6b - 1:
     public Game zoekGameOpNaam(String checkIfGameisInBezit) {
         for (int i = 0; i < mijnGame.size(); i++) {
             Game opgehaaldeGame = mijnGame.get(i);
@@ -50,7 +50,7 @@ public class Persoon {
         return null;
     }
 
-//    Opdracht 2
+//    Opdracht 6b -2
     public ArrayList<Game> bepaalGamesNietInBezit(ArrayList<Game> games) {
         ArrayList<Game> nietInBezit = new ArrayList<>();
 

@@ -14,7 +14,12 @@ public class BedrijfInventaris {
 
     }
 
-
+    @Override
+    public String toString() {
+        return "bedrijfsNaam :"+ bedrijfsNaam
+                  +" alleGoederen :"+ alleGoederen
+                  +" budget :"+ budget;
+    }
 
 
 

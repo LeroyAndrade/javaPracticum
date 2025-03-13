@@ -8,7 +8,7 @@ public class Fiets {
     }
 
     public double huidigeWaarde(){
-        return 0;
+        return this.pr * Math.pow(0.9, this.jr);
     }
 
     @Override

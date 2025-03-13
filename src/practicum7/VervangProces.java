@@ -9,6 +9,7 @@ public class VervangProces implements OpmaakProces{
         this.nieuw = nieuw;
     }
 
+    @Override
     public String maakOp(String input){
         return input.replace(oud, nieuw);
     }

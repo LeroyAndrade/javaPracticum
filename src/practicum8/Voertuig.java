@@ -1,6 +1,8 @@
 package practicum8;
 
-public abstract class Voertuig {
+import practicum6.practicum6B.Game;
+
+public abstract class Voertuig implements Goed{
     // Instance variables
     private String type;
     protected double nieuwprijs;
@@ -13,11 +15,19 @@ public abstract class Voertuig {
         this.bouwjaar = jr;
     }
 
-    public boolean equals(Object obj){
-        if(obj instanceof Voertuig){
-            Voertuig voertuig = (Voertuig)obj;
+    public boolean equals(Object anderObject) {
+        boolean gelijkeObjecten = false;
+
+        if (anderObject instanceof Game) {
+            Game anderGame = (Game) anderObject;
+
+            if (this.naam.equals(anderGame.naam) &&
+                    this.releaseJaar == anderGame.releaseJaar)
+            {
+                gelijkeObjecten = true;
+            }
         }
-        return false;
+        return gelijkeObjecten;
     }
 
     public abstract double huidigeWaarde();

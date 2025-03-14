@@ -20,10 +20,10 @@ public class Computer implements Goed {
 
     @Override
     public String toString() {
-        return "type :"+ type
-                +" macAdres :"+ macAdres
-                +" aanschafPrijs :"+ aanschafPrijs
-                +" productieJaar :"+ productieJaar;
+        return "Computermerk: "+ type
+                + " " + "MAC: "+macAdres
+                +" aanschafPrijs: "+ aanschafPrijs
+                +" productieJaar: "+ productieJaar;
     }
 
 }

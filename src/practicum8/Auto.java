@@ -20,4 +20,5 @@ public class Auto extends Voertuig{
 //        return this.pr * Math.pow(0.7, this.jr);
     }
 
+
 }

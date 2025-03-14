@@ -30,8 +30,11 @@ public class BedrijfInventaris {
 
     @Override
     public String toString() {
-        return "bedrijfsNaam :" + bedrijfsNaam
-                + " alleGoederen :" + alleGoederen
-                + " budget :" + budget;
+        String inventarisTotaal = "";
+
+        for (Object key : alleGoederen) {
+            inventarisTotaal += "Inventory: - " + key + "\n";
+        }
+        return inventarisTotaal;
     }
 }

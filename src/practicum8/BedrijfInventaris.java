@@ -5,11 +5,10 @@ import java.util.List;
 public class BedrijfInventaris {
     private String bedrijfsNaam;
     private double budget;
-    private List<Goed> alleGoederen;
+    private ArrayList<Goed> alleGoederen;
 
     public BedrijfInventaris(String nm) {
         this.bedrijfsNaam = nm;
-        this.budget =0.0;
         this.alleGoederen = new ArrayList<>();
     }
 
@@ -19,13 +18,20 @@ public class BedrijfInventaris {
         this.alleGoederen = new ArrayList<>();
     }
 
-    public BedrijfInventaris(double bud) {
-        this.budget = bud;
-        this.alleGoederen = new ArrayList<>();
-    }
+
 
     public void schafAan(Goed g){
         alleGoederen.add(g);
+    }
+
+    public double getTotaleNieuwprijs() {
+        double totaal = 0;
+        for (Goed g : alleGoederen) {
+            if (g instanceof Voertuig) {
+                budget -= ((Voertuig) g).getNieuwprijs();
+            }
+        }
+        return totaal;
     }
 
     @Override
@@ -33,7 +39,7 @@ public class BedrijfInventaris {
         String inventarisTotaal = "";
 
         for (Object key : alleGoederen) {
-            inventarisTotaal += "Inventory: - " + key + "\n";
+            inventarisTotaal += "Inventory: - " + key + "\n" + alleGoederen + getTotaleNieuwprijs() + "\n";
         }
         return inventarisTotaal;
     }

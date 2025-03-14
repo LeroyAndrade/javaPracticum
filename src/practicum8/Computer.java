@@ -18,6 +18,12 @@ public class Computer implements Goed {
         return this.aanschafPrijs * Math.pow(0.6, this.productieJaar);
     }
 
-
+    @Override
+    public String toString() {
+        return "type :"+ type
+                +" macAdres :"+ macAdres
+                +" aanschafPrijs :"+ aanschafPrijs
+                +" productieJaar :"+ productieJaar;
+    }
 
 }

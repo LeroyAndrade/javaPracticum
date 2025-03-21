@@ -1,6 +1,6 @@
 package practicum8;
 
-public class Auto extends Voertuig{
+public class Auto extends Voertuig implements Goed{
     private String kenteken;
 
     public Auto(String tp, double pr, int jr, String kt) {
@@ -20,5 +20,18 @@ public class Auto extends Voertuig{
 //        return this.pr * Math.pow(0.7, this.jr);
     }
 
+    @Override
+    public boolean equals(Object anderObject) {
+        boolean gelijkeObjecten = false;
+
+        if (anderObject instanceof Fiets) {
+            Auto anderAuto = (Auto) anderObject;
+
+            if (this.kenteken == anderAuto.kenteken) {
+                gelijkeObjecten = true;
+            }
+        }
+        return gelijkeObjecten;
+    }
 
 }

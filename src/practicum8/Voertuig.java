@@ -23,12 +23,6 @@ public abstract class Voertuig implements Goed {
         return type.equals(nieuwVoertuig.type) && nieuwprijs == nieuwVoertuig.nieuwprijs && bouwjaar == nieuwVoertuig.bouwjaar;
     }
 
-    public double getNieuwprijs() {
-        return nieuwprijs;
-    }
-    public abstract double huidigeWaarde();
-
-
     @Override
     public  String toString() {
         return "Type: "+ type

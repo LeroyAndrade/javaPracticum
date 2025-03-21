@@ -13,17 +13,35 @@ public class Computer implements Goed {
         this.productieJaar = jr;
     }
 
-
     public double huidigeWaarde(){
-        return this.aanschafPrijs * Math.pow(0.6, this.productieJaar);
+        int jaartalNu = 2025;
+        int jaarOud = jaartalNu - this.productieJaar;
+        return jaarOud * Math.pow(0.6, jaarOud);
     }
+
+//    @Override
+//    public String toString() {
+//        return "Computermerk: "+ type
+//                + " - " + "MAC: "+ macAdres
+//                +" - huidige waarde: "+ huidigeWaarde()
+//                +" - productieJaar: "+ productieJaar;
+//    }
 
     @Override
-    public String toString() {
-        return "Computermerk: "+ type
-                + " " + "MAC: "+ macAdres
-                +" huidige waarde: "+ huidigeWaarde()
-                +" productieJaar: "+ productieJaar;
-    }
+    public boolean equals(Object anderObject) {
+        boolean gelijkeObjecten = false;
 
+        if (anderObject instanceof Computer) {
+            Computer anderComputer = (Computer) anderObject;
+
+            if (this.type.equals(anderComputer.type) &&
+                    this.macAdres.equals(anderComputer.macAdres) &&
+                    this.aanschafPrijs == anderComputer.aanschafPrijs &&
+                    this.productieJaar == anderComputer.productieJaar) {
+                gelijkeObjecten = true;
+            }
+        }
+
+        return gelijkeObjecten;
+    }
 }

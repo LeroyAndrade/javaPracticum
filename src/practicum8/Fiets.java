@@ -9,18 +9,23 @@ public class Fiets extends Voertuig {
     }
 
     public double huidigeWaarde() {
-    return framenummer;
+    return nieuwprijs;
     }
 
-    public String toString() {
-        return "Fiets: type=" + ", prijs=" + nieuwprijs + ", jaar=" + bouwjaar + ", framenummer=" + framenummer;
-    }
 
-//    public boolean equals(Object obj) {
-//        if (!super.equals(obj)) {
-//            return false;
-//        }
-//        Fiets other = (Fiets) obj;
-//        return framenummer == other.framenummer;
-//    }
+    @Override
+    public boolean equals(Object anderObject) {
+        boolean gelijkeObjecten = false;
+
+        if (anderObject instanceof Fiets) {
+            Fiets anderFiets = (Fiets) anderObject;
+
+            if (this.framenummer == anderFiets.framenummer &&
+                this.nieuwprijs == anderFiets.nieuwprijs &&
+                this.bouwjaar == anderFiets.bouwjaar) {
+                gelijkeObjecten = true;
+            }
+        }
+        return gelijkeObjecten;
+    }
 }

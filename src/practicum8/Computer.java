@@ -1,4 +1,5 @@
 package practicum8;
+import static practicum8.Utils.euroBedrag;
 
 public class Computer implements Goed {
     private String type;
@@ -39,7 +40,7 @@ public class Computer implements Goed {
     @Override
     public String toString() {
         return "Type: " + type
-                + " aanschafPrijs: " + aanschafPrijs
+                + " aanschafPrijs: " + euroBedrag(aanschafPrijs)
                 + " productieJaar: " + productieJaar;
     }
 }

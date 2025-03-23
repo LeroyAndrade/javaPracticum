@@ -12,7 +12,6 @@ public class Auto extends Voertuig implements Goed{
         int jaartalNu = 2025;
         int jaarOud = jaartalNu - bouwjaar;
         return nieuwprijs * Math.pow(0.7, jaarOud);
-
     }
 
     @Override

@@ -1,6 +1,5 @@
 package practicum8;
 import java.util.ArrayList;
-import java.text.DecimalFormat;
 
 public class BedrijfInventaris {
     private String bedrijfsNaam;
@@ -17,16 +16,11 @@ public class BedrijfInventaris {
         if (alleGoederen.contains(g)) {
             System.out.println("Aanschaf mislukt, het is al toegevoegd -" + g.toString());
         } else if (budget < g.huidigeWaarde()) {
-            System.out.println("Aanschaf mislukt, onvoldoende budget voor: " + g.toString());
+            System.out.println("Aanschaf mislukt, onvoldoende budget voor: " + g);
         } else {
             alleGoederen.add(g);
             budget -= g.huidigeWaarde();
         }
-    }
-
-    private String formatCurrency(double value) {
-        DecimalFormat df = new DecimalFormat("#,###.00");
-        return df.format(value);
     }
 
     @Override
@@ -36,7 +30,6 @@ public class BedrijfInventaris {
         for (Goed g : alleGoederen) {
             inventarisTotaal += g.toString() + "\n";
         }
-
         return inventarisTotaal;
     }
 }

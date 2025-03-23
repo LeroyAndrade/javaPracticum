@@ -1,4 +1,5 @@
 package practicum8;
+import static practicum8.Utils.euroBedrag;
 
 public abstract class Voertuig implements Goed {
     private String type;
@@ -22,7 +23,7 @@ public abstract class Voertuig implements Goed {
     @Override
     public  String toString() {
         return "Type: "+ type
-                + " nieuwprijs: " + nieuwprijs +", "
+                + " nieuwprijs: " + euroBedrag(nieuwprijs) +", "
                 + " bouwjaar: " + bouwjaar;
     }
 }

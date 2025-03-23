@@ -1,4 +1,4 @@
-package practicum8;
+package practicum8en9a;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

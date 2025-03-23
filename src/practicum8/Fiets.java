@@ -8,24 +8,18 @@ public class Fiets extends Voertuig {
         framenummer = fnr;
     }
 
+    @Override
     public double huidigeWaarde() {
-    return nieuwprijs;
+        int jarenOud = 2024 - bouwjaar;
+        return nieuwprijs * Math.pow(0.9, jarenOud);
     }
 
-
     @Override
-    public boolean equals(Object anderObject) {
-        boolean gelijkeObjecten = false;
-
-        if (anderObject instanceof Fiets) {
-            Fiets anderFiets = (Fiets) anderObject;
-
-            if (this.framenummer == anderFiets.framenummer &&
-                this.nieuwprijs == anderFiets.nieuwprijs &&
-                this.bouwjaar == anderFiets.bouwjaar) {
-                gelijkeObjecten = true;
-            }
+    public boolean equals(Object obj) {
+        if (!(obj instanceof Fiets)) {
+            return false;
         }
-        return gelijkeObjecten;
+        Fiets fiets = (Fiets) obj;
+        return super.equals(obj) && framenummer == fiets.framenummer;
     }
 }

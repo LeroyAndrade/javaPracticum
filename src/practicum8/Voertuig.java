@@ -1,19 +1,15 @@
 package practicum8;
 
-
 public abstract class Voertuig implements Goed {
-    // Instance variables
     private String type;
     protected double nieuwprijs;
     protected int bouwjaar;
 
-    // Constructor
     public Voertuig(String tp, double pr, int jr) {
         this.type = tp;
         this.nieuwprijs = pr;
         this.bouwjaar = jr;
     }
-
 
     public boolean equals(Object anderObject) {
         if (anderObject == null || getClass() != anderObject.getClass()) {
@@ -29,6 +25,5 @@ public abstract class Voertuig implements Goed {
                 + " nieuwprijs: " + nieuwprijs +", "
                 + " bouwjaar: " + bouwjaar;
     }
-
 }
 

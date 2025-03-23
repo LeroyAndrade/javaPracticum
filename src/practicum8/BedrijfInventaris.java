@@ -7,38 +7,20 @@ public class BedrijfInventaris {
     private double budget;
     private ArrayList<Goed> alleGoederen = new ArrayList<Goed>();
 
-//    public BedrijfInventaris(String nm) {
-//        this.bedrijfsNaam = nm;
-//        this.alleGoederen = new ArrayList<>();
-//    }
-//
-    public BedrijfInventaris(double bud) {
-        this.budget = bud;
-        this.alleGoederen = new ArrayList<>();
-    }
-
     public BedrijfInventaris(String nm, double bud) {
         this.bedrijfsNaam = nm;
         this.budget = bud;
         this.alleGoederen = new ArrayList<>();
     }
 
-    public void schafAan(Goed g){
-//        debug
-        System.out.println("Huidige waarde van item: " +  formatCurrency(g.huidigeWaarde()));  // Print the current value of the item
-        System.out.println("Huidig budget: " + formatCurrency(budget));  // Print the current budget
- //        debug
-
-        if (!alleGoederen.contains(g)) {
-            if (budget >= g.huidigeWaarde()) {
-                alleGoederen.add(g);
-                System.out.println("Toegevoegd");
-                budget -= g.huidigeWaarde();
-            } else {
-                System.out.println("Geen saldo: " +  formatCurrency(budget));
-            }
+    public void schafAan(Goed g) {
+        if (alleGoederen.contains(g)) {
+            System.out.println("Aanschaf mislukt, het is al toegevoegd -" + g.toString());
+        } else if (budget < g.huidigeWaarde()) {
+            System.out.println("Aanschaf mislukt, onvoldoende budget voor: " + g.toString());
         } else {
-            System.out.println("Item bestaat al in het lijstje, niet toegevoegd");
+            alleGoederen.add(g);
+            budget -= g.huidigeWaarde();
         }
     }
 
@@ -49,11 +31,12 @@ public class BedrijfInventaris {
 
     @Override
     public String toString() {
-        String inventarisTotaal = "";
+        String inventarisTotaal = "\nInventaris van " + bedrijfsNaam + ":\n";
 
         for (Goed g : alleGoederen) {
-            inventarisTotaal += "Inventory: - " + g + " buget: " +  formatCurrency(budget) + "\n";
+            inventarisTotaal += g.toString() + "\n";
         }
+
         return inventarisTotaal;
     }
 }

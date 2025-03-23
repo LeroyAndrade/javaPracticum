@@ -19,14 +19,6 @@ public class Computer implements Goed {
         return jaarOud * Math.pow(0.6, jaarOud);
     }
 
-//    @Override
-//    public String toString() {
-//        return "Computermerk: "+ type
-//                + " - " + "MAC: "+ macAdres
-//                +" - huidige waarde: "+ huidigeWaarde()
-//                +" - productieJaar: "+ productieJaar;
-//    }
-
     @Override
     public boolean equals(Object anderObject) {
         boolean gelijkeObjecten = false;
@@ -41,7 +33,13 @@ public class Computer implements Goed {
                 gelijkeObjecten = true;
             }
         }
-
         return gelijkeObjecten;
+    }
+
+    @Override
+    public String toString() {
+        return "Type: " + type
+                + " aanschafPrijs: " + aanschafPrijs
+                + " productieJaar: " + productieJaar;
     }
 }

@@ -1,21 +1,21 @@
-package  practicum9b10.hotel.model;
+package practicum9b10.hotel.model;
 
 public class Kamer {
 	private int kamerNummer;
 	private boolean extraBed = false;
 	private KamerType hetType;
-	
+
 	public Kamer(int kN, KamerType tp) {
 		kamerNummer = kN;
 		hetType = tp;
 	}
-	
+
 	public int getKamerNummer() {
 		return kamerNummer;
 	}
 
-	public KamerType getKamerType() {
-		return hetType;
+	public KamerType getKamerType() { // Fixed return type to KamerType
+		return hetType; // Fixed return statement
 	}
 
 	public boolean equals(Object obj) {
@@ -30,6 +30,6 @@ public class Kamer {
 
 	public String toString() {
 		String s = "kamer: " + kamerNummer + " van type: " + hetType;
-		return s + " extra bed mogelijk: " + (extraBed ? "nee" : "ja");
+		return s + " extra bed mogelijk: " + (extraBed ? "ja" : "nee");
 	}
-} 
+}

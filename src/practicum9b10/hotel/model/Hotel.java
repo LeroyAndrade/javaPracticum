@@ -18,7 +18,7 @@ public class Hotel {
 	private List<Boeking> alleBoekingen = new ArrayList<Boeking>();
 	private List<KamerType> alleKamerTypen = new ArrayList<KamerType>();
 	private List<Kamer> alleKamers = new ArrayList<Kamer>();
-	
+
 	public Hotel(String naam, List<Kamer> deKamers) {
 		this.naam = naam;
 
@@ -58,10 +58,10 @@ public class Hotel {
 
 		return boeking;
 	}
-	
+
 	private Kamer zoekBeschikbareKamer(KamerType gewensteType, LocalDate aankomst, LocalDate vertrek) {
 		Kamer beschikbareKamer = null;
-				
+
 		for (Kamer kamer : alleKamers) {
 			if (kamer.getKamerType().equals(gewensteType)) {
 				if (isBeschikbaar(kamer, aankomst, vertrek)) {
@@ -70,16 +70,16 @@ public class Hotel {
 				}
 			}
 		}
-		
+
 		return beschikbareKamer;
 	}
-	
+
 	private boolean isBeschikbaar(Kamer kamer, LocalDate aankomst, LocalDate vertrek) {
 		boolean isBeschikbaar = true;
 
 		for (Boeking boeking : alleBoekingen) {
 			if (boeking.getKamer().equals(kamer)) {
-				
+
 				//bool overlap = a.start < boeking.end && boeking.start < a.end;
 				if (aankomst.isBefore(boeking.getVertrekDatum()) && boeking.getAankomstDatum().isBefore(vertrek)) {
 					isBeschikbaar = false;
@@ -87,10 +87,10 @@ public class Hotel {
 				}
 			}
 		}
-				
-		return isBeschikbaar; 
+
+		return isBeschikbaar;
 	}
-	
+
 	public String toString() {
 		StringBuilder result = new StringBuilder("Boekingen van hotel " + naam + ":");
 		alleBoekingen.forEach(boeking -> result.append("\n\t" + boeking.getAankomstDatum() + " " + boeking.getVertrekDatum()));

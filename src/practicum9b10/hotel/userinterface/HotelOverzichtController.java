@@ -1,5 +1,6 @@
 package practicum9b10.hotel.userinterface;
 
+import practicum9b10.hotel.model.Boeking;
 import practicum9b10.hotel.model.Hotel;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -11,6 +12,7 @@ import javafx.scene.control.ListView;
 
 import java.io.IOException;
 import java.time.LocalDate;
+import java.util.List;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -43,7 +45,7 @@ public class HotelOverzichtController {
     }
 
     public void nieuweBoeking(ActionEvent actionEvent) {
-        System.out.println("nieuweBoeking() is nog niet geïmplementeerd!");
+//        System.out.println("nieuweBoeking() is nog niet geïmplementeerd!");
         try {
             // Maak in je project een nieuwe FXML-pagina om boekingen te kunnen invoeren
             FXMLLoader loader = new FXMLLoader(getClass().getResource("Boekingen.fxml"));
@@ -62,24 +64,28 @@ public class HotelOverzichtController {
     }
 
     public void toonBoekingen() {
-//        System.out.println("toonBoekingen() is nog niet geïmplementeerd!");
+        // System.out.println("toonBoekingen() is nog niet geïmplementeerd!");
         ObservableList<String> boekingen = FXCollections.observableArrayList();
 
         LocalDate geselecteerdeDatum = overzichtDatePicker.getValue();
 
         // Vraag de boekingen op bij het Hotel-object.
-        hotel.getBoekingen().stream()
-                .filter(boeking -> !boeking.getVertrekDatum().isBefore(geselecteerdeDatum)
-                        && !boeking.getAankomstDatum().isAfter(geselecteerdeDatum))
-                .forEach(boeking -> {
-                    // Voeg voor elke boeking in nette tekst (string) toe aan de boekingen-lijst.
-                    String boekingDetails = String.format("Van: %s, Tot: %s, Kamer: %d, Klant: %s",
-                            boeking.getAankomstDatum(),
-                            boeking.getVertrekDatum(),
-                            boeking.getKamer().getKamerNummer(),
-                            boeking.getBoeker().getNaam());
-                    boekingen.add(boekingDetails);
-                });
+        List<Boeking> alleBoekingen = hotel.getBoekingen();
+        for (Boeking boeking : alleBoekingen) {
+            LocalDate vertrekDatum = boeking.getVertrekDatum();
+            LocalDate aankomstDatum = boeking.getAankomstDatum();
+
+            boolean vertrekNietVoorGeselecteerdeDatum = !vertrekDatum.isBefore(geselecteerdeDatum);
+            boolean aankomstNietNaGeselecteerdeDatum = !aankomstDatum.isAfter(geselecteerdeDatum);
+
+            if (vertrekNietVoorGeselecteerdeDatum && aankomstNietNaGeselecteerdeDatum) {
+                // Voeg voor elke boeking in nette tekst (string) toe aan de boekingen-lijst.
+                String boekingDetails = "aankomstDatum: " + aankomstDatum + " vertrekDatum: " + vertrekDatum +
+                        ", Kamer: " + boeking.getKamer().getKamerNummer() +
+                        ", Klant: " + boeking.getBoeker().getNaam();
+                boekingen.add(boekingDetails);
+            }
+        }
         // Vraag de boekingen op bij het Hotel-object.
         // Voeg voor elke boeking in nette tekst (string) toe aan de boekingen-lijst.
 

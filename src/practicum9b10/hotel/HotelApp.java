@@ -1,6 +1,5 @@
 package practicum9b10.hotel;
 
-
 import practicum9b10.hotel.model.Hotel;
 import practicum9b10.hotel.model.Kamer;
 import practicum9b10.hotel.model.KamerType;
@@ -15,6 +14,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class HotelApp extends Application {
+	private String naam;
+	private Hotel hethotel;
+
 	public static void main(String[] args) throws Exception {
 		KamerType kt1 = new KamerType("Standaard", 2, 60.00);
 		KamerType kt2 = new KamerType("DeLuxe", 2, 85.00);

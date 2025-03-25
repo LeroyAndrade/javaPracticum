@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
@@ -19,7 +17,7 @@
       <TextField fx:id="adresVeld" layoutX="179.0" layoutY="115.0" onAction="#onActionAdresVeld" prefHeight="25.0" prefWidth="331.0" />
       <DatePicker fx:id="btnAankomstDatumVeld" layoutX="179.0" layoutY="154.0" onAction="#onActionbBtnAankomstDatum" prefHeight="25.0" prefWidth="331.0" />
       <DatePicker fx:id="btnVertrekDatumVeld" layoutX="179.0" layoutY="191.0" onAction="#onActionbBtnVertrekDatum" prefHeight="25.0" prefWidth="331.0" />
-      <Button fx:id="btnResetVeld" layoutX="381.0" layoutY="279.0" mnemonicParsing="false" onAction="#onActionbBtnReset" prefHeight="25.0" prefWidth="60.0" text="Reset" />
-      <Button fx:id="btnBoekVeld" layoutX="450.0" layoutY="279.0" mnemonicParsing="false" onAction="#onActionbBtnBoeken" prefHeight="25.0" prefWidth="60.0" text="Boek" />
+      <Button fx:id="btnResetVeld" layoutX="381.0" layoutY="279.0" mnemonicParsing="false" onAction="#handleButtonReset" prefHeight="25.0" prefWidth="60.0" text="Reset" />
+      <Button fx:id="btnBoekVeld" layoutX="450.0" layoutY="279.0" mnemonicParsing="false" onAction="#nieuweBoeking" prefHeight="25.0" prefWidth="60.0" text="Boek" />
    </children>
 </AnchorPane>

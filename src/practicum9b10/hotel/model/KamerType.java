@@ -15,8 +15,7 @@ public class KamerType {
 		return typeNaam;
 	}
 
-	public int getAantalBedden() {
-		return aantalBedden;
+	public int getAantalBedden() {return aantalBedden;
 	}
 
 	public double getPrijsPerNacht() {

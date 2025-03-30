@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
 <AnchorPane prefHeight="340.0" prefWidth="566.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="practicum9b10.hotel.userinterface.BoekingenController">
    <children>
-      <Label layoutX="41.0" layoutY="32.0" text="Voer uw gegevens in:" />
+      <Label fx:id="LabelBerichtEnFoutmelding" layoutX="41.0" layoutY="32.0" text="Voer uw gegevens in:" />
       <Label layoutX="41.0" layoutY="81.0" text="Naam:" />
       <Label layoutX="41.0" layoutY="119.0" text="Adres:" />
       <Label layoutX="41.0" layoutY="154.0" text="Aankomstdatum:" />

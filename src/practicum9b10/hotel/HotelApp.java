@@ -33,7 +33,7 @@ public class HotelApp extends Application {
 		nieuwHotel.voegBoekingToe(LocalDate.now().plusDays(3), LocalDate.now().plusDays(13), "Trammetje Westerflat", "Studio 100", kt1);
 
 		Hotel.setHotel(nieuwHotel);
-
+		System.out.println();
 		launch(args);
 	}
 

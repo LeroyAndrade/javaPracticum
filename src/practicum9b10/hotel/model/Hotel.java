@@ -15,14 +15,14 @@ public class Hotel {
 	}
 
 	private String naam;
-	private List<Boeking> alleBoekingen = new ArrayList<Boeking>();
-	private List<KamerType> alleKamerTypen = new ArrayList<KamerType>();
-	private List<Kamer> alleKamers = new ArrayList<Kamer>();
+	private ArrayList<Boeking> alleBoekingen = new ArrayList<Boeking>();
+	private ArrayList<KamerType> alleKamerTypen = new ArrayList<KamerType>();
+	private ArrayList<Kamer> alleKamers = new ArrayList<Kamer>();
 
 	public Hotel(String naam, List<Kamer> deKamers) {
 		this.naam = naam;
 
-		alleKamers = deKamers;
+		alleKamers = (ArrayList<Kamer>) deKamers;
 
 		for (Kamer kamer : deKamers) {
 			if (!alleKamerTypen.contains(kamer.getKamerType())) {
@@ -80,7 +80,7 @@ public class Hotel {
 		for (Boeking boeking : alleBoekingen) {
 			if (boeking.getKamer().equals(kamer)) {
 
-				//bool overlap = a.start < boeking.end && boeking.start < a.end;
+
 				if (aankomst.isBefore(boeking.getVertrekDatum()) && boeking.getAankomstDatum().isBefore(vertrek)) {
 					isBeschikbaar = false;
 					break;

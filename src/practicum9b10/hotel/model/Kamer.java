@@ -3,7 +3,7 @@ package practicum9b10.hotel.model;
 public class Kamer {
 	private int kamerNummer;
 	private boolean extraBed = false;
-	private KamerType hetType;
+	private KamerType  hetType;
 
 	public Kamer(int kN, KamerType tp) {
 		kamerNummer = kN;
@@ -14,8 +14,8 @@ public class Kamer {
 		return kamerNummer;
 	}
 
-	public KamerType getKamerType() { // Fixed return type to KamerType
-		return hetType; // Fixed return statement
+	public KamerType getKamerType() {
+		return hetType;
 	}
 
 	public boolean equals(Object obj) {

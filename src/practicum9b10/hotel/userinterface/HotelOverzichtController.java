@@ -31,7 +31,6 @@ public class HotelOverzichtController {
         hotelnaamLabel.setText("Boekingen hotell " + hotel.getNaam());
         overzichtDatePicker.setValue(LocalDate.now());
         toonBoekingen();
-
     }
 
     public void toonVorigeDag(ActionEvent actionEvent) {
@@ -51,13 +50,14 @@ public class HotelOverzichtController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("Boekingen.fxml"));
             Parent root = loader.load();
             // Open de nieuwe pagina in deze methode
-            Stage stage = new Stage();
-            stage.setTitle("Nieuwe Boeking");
-            stage.setScene(new Scene(root));
+            Stage boekingScherm = new Stage();
+            boekingScherm.setTitle("Hotel "+ hotel.getNaam() + ": schrijf uw boeking in.");
+            boekingScherm.setScene(new Scene(root));
             // Zorg dat de gebruiker ondertussen geen gebruik kan maken van de HotelOverzicht-pagina
-            stage.initModality(Modality.APPLICATION_MODAL);
+            boekingScherm.initModality(Modality.APPLICATION_MODAL);
             // Update na sluiten van de nieuwe pagina het boekingen-overzicht
-            stage.showAndWait();
+            boekingScherm.showAndWait();
+            toonBoekingen();
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
@@ -65,6 +65,7 @@ public class HotelOverzichtController {
 
     public void toonBoekingen() {
         // System.out.println("toonBoekingen() is nog niet geïmplementeerd!");
+        LocalDate vandaag = LocalDate.now();
         ObservableList<String> boekingen = FXCollections.observableArrayList();
 
         LocalDate geselecteerdeDatum = overzichtDatePicker.getValue();
@@ -78,16 +79,17 @@ public class HotelOverzichtController {
             boolean vertrekNietVoorGeselecteerdeDatum = !vertrekDatum.isBefore(geselecteerdeDatum);
             boolean aankomstNietNaGeselecteerdeDatum = !aankomstDatum.isAfter(geselecteerdeDatum);
 
-            if (vertrekNietVoorGeselecteerdeDatum && aankomstNietNaGeselecteerdeDatum) {
+            if (!aankomstDatum.isBefore(vandaag) && !vertrekDatum.isBefore(vandaag)) {
                 // Voeg voor elke boeking in nette tekst (string) toe aan de boekingen-lijst.
-                String boekingDetails = "aankomstDatum: " + aankomstDatum + " vertrekDatum: " + vertrekDatum +
-                        ", Kamer: " + boeking.getKamer().getKamerNummer() +
-                        ", Klant: " + boeking.getBoeker().getNaam();
+                String boekingDetails = "Incheck: " + aankomstDatum
+                        + " uitcheck: " + vertrekDatum
+                        + " Kamer: " + boeking.getKamer().getKamerNummer()
+                        + " Klant: " + boeking.getBoeker().getNaam();
+
+                // Voeg voor elke boeking in nette tekst (string) toe aan de boekingen-lijst.
                 boekingen.add(boekingDetails);
             }
         }
-        // Vraag de boekingen op bij het Hotel-object.
-        // Voeg voor elke boeking in nette tekst (string) toe aan de boekingen-lijst.
 
         boekingenListView.setItems(boekingen);
     }

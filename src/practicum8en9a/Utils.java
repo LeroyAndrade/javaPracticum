@@ -7,8 +7,6 @@ public class Utils {
     }
 
     public static String euroBedrag(double bedrag, int precisie) {
-
         return String.format("%."+ precisie +"f", bedrag);
     }
-//    de ene method roept de ander aan onder water
 }

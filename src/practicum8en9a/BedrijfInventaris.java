@@ -12,6 +12,10 @@ public class BedrijfInventaris {
         this.alleGoederen = new ArrayList<>();
     }
 
+    public BedrijfInventaris() {
+
+    }
+
     public void schafAan(Goed g) {
         if (alleGoederen.contains(g)) {
             System.out.println("Aanschaf mislukt, het is al toegevoegd -" + g.toString());

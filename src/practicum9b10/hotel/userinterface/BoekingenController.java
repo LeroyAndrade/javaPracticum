@@ -1,5 +1,4 @@
-package  practicum9b10.hotel.userinterface;
-
+package practicum9b10.hotel.userinterface;
 
 import practicum9b10.hotel.model.Boeking;
 import practicum9b10.hotel.model.Hotel;
@@ -7,7 +6,7 @@ import practicum9b10.hotel.model.KamerType;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.*; // This imports Button, ComboBox, TextField, DatePicker, Label, etc.
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.time.LocalDate;
@@ -24,9 +23,9 @@ public class BoekingenController {
     @FXML private Label LabelBerichtEnFoutmelding;
 
     private Hotel hotel = Hotel.getHotel();
-    public void initialize(){
+
+    public void initialize() {
         List<KamerType> kamerTypen = hotel.getKamerTypen();
-        // Zet de lijst in ComboBox
         btnKamerTypeVeld.setItems(FXCollections.observableArrayList(kamerTypen));
     }
 
@@ -41,49 +40,69 @@ public class BoekingenController {
     public void onActionAdresVeld(ActionEvent event) {}
     public void onActionbBtnAankomstDatum(ActionEvent event) {}
     public void onActionbBtnVertrekDatum(ActionEvent event) {}
-    public void handleButtonReset(ActionEvent event) {
 
+    public void handleButtonReset(ActionEvent event) {
         naamVeld.setText("");
         adresVeld.setText("");
         btnAankomstDatumVeld.setValue(null);
         btnVertrekDatumVeld.setValue(null);
         btnKamerTypeVeld.setValue(null);
-
         LabelBerichtEnFoutmelding.setText(" ");
-
     }
+
     public void nieuweBoeking(ActionEvent event) {
-        String naam = naamVeld.getText();
-        String adres = adresVeld.getText();
+        String naam = naamVeld.getText().trim();
+        String adres = adresVeld.getText().trim();
         LocalDate aankomstDatum = btnAankomstDatumVeld.getValue();
         LocalDate vertrekDatum = btnVertrekDatumVeld.getValue();
         KamerType kamerType = btnKamerTypeVeld.getValue();
         LocalDate vandaag = LocalDate.now();
 
-        if (naam == null || naam.equals("")) {
-            LabelBerichtEnFoutmelding.setText("Foutmelding: naam niet ingevuld!");
-            return;
+        LabelBerichtEnFoutmelding.setText("");
+
+        boolean foutOpgetreden = false;
+
+
+        if (naam.equals("")) {
+            LabelBerichtEnFoutmelding.setText("Fout: geen naam!\n");
+            foutOpgetreden = true;
         }
-        if (adres == null || adres.equals("")) {
-            LabelBerichtEnFoutmelding.setText("Foutmelding: dres  niet ingevuld!");
+        if (adres.equals("")) {
+            LabelBerichtEnFoutmelding.setText("Fout: geen adres!\n");
+            foutOpgetreden = true;
         }
+
         if (aankomstDatum == null) {
-            LabelBerichtEnFoutmelding.setText("Foutmelding: Kies een aankomstdatum niet ingevuld!");
+            LabelBerichtEnFoutmelding.setText("Fout: kies een aankomstdatum!\n");
+            foutOpgetreden = true;
         }
+        if (aankomstDatum != null && aankomstDatum.isBefore(vandaag)) {
+            LabelBerichtEnFoutmelding.setText("Fout: aankomst is al geweest!\n");
+            foutOpgetreden = true;
+        }
+
         if (vertrekDatum == null) {
-            LabelBerichtEnFoutmelding.setText("Foutmelding: vertrekdatum niet ingevuld!!");
+            LabelBerichtEnFoutmelding.setText("Fout: geen vertrekdatum!\n");
+            foutOpgetreden = true;
         }
+        if (vertrekDatum != null && vertrekDatum.isBefore(vandaag)) {
+            LabelBerichtEnFoutmelding.setText("Fout: vertrek is al geweest!\n");
+            foutOpgetreden = true;
+        }
+        if (aankomstDatum != null && vertrekDatum != null) {
+            if (vertrekDatum.isBefore(aankomstDatum) || aankomstDatum.equals(vertrekDatum)) {
+                LabelBerichtEnFoutmelding.setText("Fout: aankomst moet voor vertrek zijn!\n");
+                foutOpgetreden = true;
+            }
+        }
+
         if (kamerType == null) {
-            LabelBerichtEnFoutmelding.setText("Foutmelding: kamertype niet ingevuld!");
+            LabelBerichtEnFoutmelding.setText("Fout: geen kamer gekozen!\n");
+            foutOpgetreden = true;
         }
-        if (aankomstDatum.isBefore(vandaag)) {
-            LabelBerichtEnFoutmelding.setText("Foutmelding: aankomstdatum is in het verleden!");
-        }
-        if (vertrekDatum.isBefore(vandaag)) {
-            LabelBerichtEnFoutmelding.setText("Foutmelding: vertrekdatum is in het verleden!");
-        }
-        if (aankomstDatum.isAfter(vertrekDatum) || aankomstDatum.equals(vertrekDatum)) {
-            LabelBerichtEnFoutmelding.setText("Foutmelding: aankomstdatum moet voor vertrekdatum zijn!");
+
+        if (foutOpgetreden) {
+            return;
         }
 
         try {
@@ -92,9 +111,7 @@ public class BoekingenController {
             Stage scherm = (Stage) btnBoekVeld.getScene().getWindow();
             scherm.close();
         } catch (Exception e) {
-            LabelBerichtEnFoutmelding.setText(e.getMessage());
+            LabelBerichtEnFoutmelding.setText("Oeps: " + e.getMessage());
         }
     }
 }
-
-

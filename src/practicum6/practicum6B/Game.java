@@ -26,6 +26,7 @@ private double nieuwprijs;
         return waarde;
     }
 
+    //    Game.java met String naam; int releaseJaar;  double nieuwprijs;
     @Override
     public boolean equals(Object anderObject) {
         boolean gelijkeObjecten = false;

@@ -11,3 +11,6 @@ Apacer Secure Digital 40* 256Mb (SD) : 43.00
 Apacer Secure Digital 40* 1Gb (Sd) : 90.00
 Fuji xD Picture Card 128Mb (xD) : 29.00
 Fuji xD Picture Card 256Mb (xD) : 47.00
+a : 10.0
+bb : 19.99
+Product III : 13.7716128

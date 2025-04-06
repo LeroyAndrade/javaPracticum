@@ -7,6 +7,6 @@ public class Utils {
     }
 
     public static String euroBedrag(double bedrag, int precisie) {
-        return String.format("%."+ precisie +"f", bedrag);
+        return String.format("%." + precisie + "f", bedrag);
     }
 }

@@ -79,14 +79,11 @@ public class HotelOverzichtController {
             boolean vertrekNietVoorGeselecteerdeDatum = !vertrekDatum.isBefore(geselecteerdeDatum);
             boolean aankomstNietNaGeselecteerdeDatum = !aankomstDatum.isAfter(geselecteerdeDatum);
 
-            if (!aankomstDatum.isBefore(vandaag) && !vertrekDatum.isBefore(vandaag)) {
+            if (vertrekNietVoorGeselecteerdeDatum && aankomstNietNaGeselecteerdeDatum) {
                 // Voeg voor elke boeking in nette tekst (string) toe aan de boekingen-lijst.
-                String boekingDetails = "Incheck: " + aankomstDatum
-                        + " uitcheck: " + vertrekDatum
-                        + " Kamer: " + boeking.getKamer().getKamerNummer()
-                        + " Klant: " + boeking.getBoeker().getNaam();
-
-                // Voeg voor elke boeking in nette tekst (string) toe aan de boekingen-lijst.
+                String boekingDetails = "aankomstDatum: " + aankomstDatum + " vertrekDatum: " + vertrekDatum +
+                        ", Kamer: " + boeking.getKamer().getKamerNummer() +
+                        ", Klant: " + boeking.getBoeker().getNaam();
                 boekingen.add(boekingDetails);
             }
         }

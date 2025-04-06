@@ -40,7 +40,7 @@ public class Computer implements Goed {
     @Override
     public String toString() {
         return "Type: " + type
-                + " aanschafPrijs: " + euroBedrag(aanschafPrijs, 2)
+                + " aanschafPrijs: " + euroBedrag(aanschafPrijs, 1)
                 + " productieJaar: " + productieJaar;
     }
 }
